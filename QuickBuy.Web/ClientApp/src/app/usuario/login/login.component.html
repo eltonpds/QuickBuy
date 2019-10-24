@@ -44,8 +44,12 @@
 
     <button class="btn btn-primary btn-block mb-3" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
-    Entrar
+      Entrar
     </button>
+
+    <div>
+      Novo por aqui? <a [routerLink]='["/novo-usuario"]'>Cadastre-se</a>
+    </div>
 
     <div class="alert alert-danger" *ngIf="msg">
       {{msg}}
@@ -54,7 +58,6 @@
     <div class="alert alert-primary" role="alert" *ngIf="usuarioAutenticado">
       Usuario Autenticado !
     </div>
-
 
   </form>
 </div>

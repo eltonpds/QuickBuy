@@ -31,4 +31,8 @@ export class NavMenuComponent {
     this.usuarioServico.limpar_sessao();
     this.router.navigate(['/']);
   }
+
+  get usuario() {
+    return this.usuarioServico.usuario;
+  }
 }

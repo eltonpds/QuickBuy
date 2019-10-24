@@ -13,7 +13,7 @@ namespace QuickBuy.Repositorio.Repositorios
             QuickBuyContexto = quickBuyContexto;
         }
 
-        public void Adicionar(TEntity entity)
+        public void Adicionar(TEntity entity)   
         {
             QuickBuyContexto.Set<TEntity>().Add(entity);
             QuickBuyContexto.SaveChanges();

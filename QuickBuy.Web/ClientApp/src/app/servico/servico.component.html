@@ -1,0 +1,60 @@
+<h1 class="h4 titulo">Cadastro de Serviços</h1>
+
+<form class="form-signin">
+  <label for="nomeServico" class="sr-only">Nome</label>
+  <input type="text" id="nomeservico"
+         name="nomeServico"
+         placeholder="Nome do serviço"
+         class="form-control mb-2 col-md-4"
+         [ngClass]="{
+       'is-valid': nome.valid && (nome.dirty || nome.touched),
+       'is-invalid': nome.invalid && (nome.dirty || nome.touched)
+       }"
+         [(ngModel)]="servico.nome"
+         #nome="ngModel"
+         required />
+
+  <div class="invalid-feedback mb-2" role="alert" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+    <div *ngIf="nome.errors.required">
+      Nome é de preenchimento obrigatório
+    </div>
+  </div>
+
+  <label for="descricaoServico" class="sr-only">Descrição</label>
+  <input type="text" id="descricaoServico"
+         name="descricao"
+         placeholder="Descrição do serviço"
+         class="form-control mb-2 col-md-4"
+         [ngClass]="{
+        'is-valid': descricao.valid && (descricao.dirty || descricao.touched),
+        'is-invalid': descricao.invalid && (descricao.dirty || descricao.touched)
+       }"
+         [(ngModel)]="servico.descricao"
+         #descricao="ngModel"
+         required />
+
+  <div class="invalid-feedback mb-2" role="alert" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
+    <div *ngIf="descricao.errors.required">
+      Descrição é de preenchimento obrigatório
+    </div>
+  </div>
+
+  <label for="precoServico" class="sr-only">Preço</label>
+  <input type="number" id="precoServico"
+         name="preco"
+         placeholder="Preço do serviço"
+         class="form-control mb-2 col-md-2"
+         [ngClass]=""
+         [(ngModel)]="servico.preco"
+         #preco="ngModel"
+         required />
+
+  <div class="invalid-feedback mb-2" role="alert" *ngIf="preco.invalid && (preco.dirty || preco.touched)">
+    <div *ngIf="preco.errors.required">
+      Preço é de preenchimento obrigatório
+    </div>
+  </div>
+  <button class="btn btn-primary mb-2" (click)="cadastrarServico()" [disabled]="ativar_spinner">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>Cadastrar
+  </button>
+</form>
