@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { Produto } from "../modelo/produto";
 import { ProdutoServico } from "../servicos/produto/produto.servico";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'produto',
@@ -17,7 +18,7 @@ export class ProdutoComponent implements OnInit{
   public produtoCadastrado: boolean;
   public arquivoSelecionado: File;
 
-  constructor(private produtoServico: ProdutoServico) {
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
 
   }
 
@@ -51,9 +52,11 @@ export class ProdutoComponent implements OnInit{
     this.produtoServico.cadastrar(this.produto)
       .subscribe(
         produtoJson => {
+          this.produto = produtoJson;
           this.produtoCadastrado = true;
           this.mensagem = "";
           this.ativar_spinner = false;
+          this.router.navigate(['/pesquisa']);
         },
         err => {
           this.ativar_spinner = false;

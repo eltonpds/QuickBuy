@@ -12,7 +12,10 @@ export class PesquisaComponent implements OnInit {
 
   public produtos: Produto[];
 
-  constructor(private produtoServico: ProdutoServico, router: Router) {
+  ngOnInit() {
+  }
+
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
     this.produtoServico.obterTodosProdutos()
     .subscribe(
       produtos => {
@@ -24,7 +27,8 @@ export class PesquisaComponent implements OnInit {
     )
    }
 
-  ngOnInit() {
-  }
+   adicionarProduto(){
+      this.router.navigate(['/produto']);
+   }
 
 }

@@ -17,6 +17,7 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
 import { ServicoServico } from './servicos/servico/servico.servico';
 import { ServicoComponent } from './servico/servico.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PesquisaComponent } from './pesquisa/pesquisa.component';
     LoginComponent,
     CadastroUsuarioComponent,
     ServicoComponent,
-    PesquisaComponent
+    PesquisaComponent,
+    LojaPesquisaComponent
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
