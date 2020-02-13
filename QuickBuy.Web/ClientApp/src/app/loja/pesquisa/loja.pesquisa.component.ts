@@ -11,7 +11,6 @@ export class LojaPesquisaComponent implements OnInit {
   public produtos: Produto[];
 
   ngOnInit(): void {
-        
   }
 
   constructor(private produtoServico: ProdutoServico) {

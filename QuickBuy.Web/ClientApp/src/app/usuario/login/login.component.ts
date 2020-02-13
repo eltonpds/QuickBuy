@@ -11,7 +11,7 @@ import { Usuario } from '../../modelo/usuario';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    
+
   public usuario;
   public returnUrl: string;
   public msg: string;
@@ -19,12 +19,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute,
                 private usuarioServico: UsuarioServico) {
-    
+
   }
 
   ngOnInit(): void {
     this.returnUrl = this.activatedRouter.snapshot.queryParams['returnUrl'];
-    this.usuario = new Usuario();    
+    this.usuario = new Usuario();
   }
 
   entrar() {
@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
 
           if (this.returnUrl == null) {
             this.router.navigate(['/']);
-          }
-          else {
+          } else {
             this.router.navigate([this.returnUrl]);
           }
         }, err => {
@@ -46,6 +45,6 @@ export class LoginComponent implements OnInit {
           this.msg = err.error;
           this.ativar_spinner = false;
         }
-    );    
+    );
   }
 }

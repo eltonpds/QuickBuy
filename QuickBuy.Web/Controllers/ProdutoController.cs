@@ -15,7 +15,7 @@ namespace QuickBuy.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public ActionResult Get()
         {
             try
             {
@@ -32,12 +32,31 @@ namespace QuickBuy.Web.Controllers
         {
             try
             {
+                produto.Validate();
+                if(!produto.EhValido)
+                {
+                    return BadRequest(produto.ObterMensagemValidacao());
+                }
                 var produtoInformado = _produtoRepositorio.Obter(produto.Descricao, produto.Preco);
                 if (produtoInformado != null)
-                    return BadRequest("Usuário já cadastrado no sistema");
+                    return BadRequest("Produto já cadastrado no sistema");
 
                 _produtoRepositorio.Adicionar(produto);
                 return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost("Deletar")]
+        public IActionResult Deletar([FromBody] Produto produto)
+        {
+            try
+            {
+                _produtoRepositorio.Remover(produto);
+                return Json(_produtoRepositorio.ObterTodos());
             }
             catch(Exception ex)
             {

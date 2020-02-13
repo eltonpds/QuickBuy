@@ -14,8 +14,6 @@ import { GuardaRotas } from './autorizacao/guarda.rota';
 import { UsuarioServico } from './servicos/usuario/usuario.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
 import { ProdutoServico } from './servicos/produto/produto.servico';
-import { ServicoServico } from './servicos/servico/servico.servico';
-import { ServicoComponent } from './servico/servico.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
@@ -29,7 +27,6 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
     ProdutoComponent,
     LoginComponent,
     CadastroUsuarioComponent,
-    ServicoComponent,
     PesquisaComponent,
     LojaPesquisaComponent,
     LojaEfetivarComponent,
@@ -41,18 +38,17 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'produto', component: ProdutoComponent },
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
-      { path: 'servico', component: ServicoComponent },
-      { path: 'pesquisa', component: PesquisaComponent },
+      { path: 'produto', component: ProdutoComponent },
+      { path: 'pesquisa-produto', component: PesquisaComponent },
       { path: 'loja-produto', component: LojaProdutoComponent },
       { path: 'loja-efetivar', component: LojaEfetivarComponent }
     ])
   ],
-  providers: [UsuarioServico, ProdutoServico, ServicoServico],
+  providers: [UsuarioServico, ProdutoServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-//{ path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
+// { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },

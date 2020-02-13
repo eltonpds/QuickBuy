@@ -1,2 +1,51 @@
+<h1 class="h4 mb-3">Cadastro de Produto</h1>
 
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <div class="col">
+        <label for="inputNome" class="sr-only">Nome do Produto</label>
+        <input type="text"
+               id="inputNome"
+               name="inputNome"
+               class="form-control col-md-6 mb-2"
+               placeholder="Nome do Produto"
+               [(ngModel)]="produto.nome"
+               [ngClass]=""
+               #nome="ngModel"
+               required />
+      </div>
+      <div class="col">
+        <label for="inputDescricao" class="sr-only">Descrição do Produto</label>
+        <input type="text"
+               id="inputDescricao"
+               name="inputDescricao"
+               class="form-control col-md-6 mb-2"
+               placeholder="Descrição do Produto"
+               [ngClass]=""
+               [(ngModel)]="produto.descricao"
+               #descricao="ngModel"
+               required />
+      </div>
 
+      <div class="col">
+        <label for="inputPreco" class="sr-only">Preço do Produto</label>
+        <input type="text"
+               id="inputPreco"
+               name="inputPreco"
+               class="form-control col-md-6 mb-2"
+               placeholder="Preço do Produto"
+               [ngClass]=""
+               [(ngModel)]="produto.preco"
+               #preco="ngModel"
+               required />
+      </div>
+      <button class="btn btn-primary mb-2" (click)="cadastrar()" [disabled]="ativar_spinner">Cadastrar</button>
+      <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+    </div>
+    <div class="col-md-4" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+  </div>
+
+</form>

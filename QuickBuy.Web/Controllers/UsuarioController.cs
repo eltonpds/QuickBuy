@@ -5,7 +5,7 @@ using System;
 
 namespace QuickBuy.Web.Controllers
 {
-    [Route("api/[Controller]")] 
+    [Route("api/[controller]")] 
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;

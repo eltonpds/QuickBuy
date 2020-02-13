@@ -35,7 +35,8 @@ export class CadastroUsuarioComponent implements OnInit {
         },
         err => {
           this.ativar_spinner = false;
-          this.mensagem = err.error;}
+          this.mensagem = err.error;
+        }
       );
   }
 }

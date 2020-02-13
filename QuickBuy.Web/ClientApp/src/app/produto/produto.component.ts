@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { Produto } from "../modelo/produto";
-import { ProdutoServico } from "../servicos/produto/produto.servico";
-import { Router } from "@angular/router";
+import { Produto } from '../modelo/produto';
+import { ProdutoServico } from '../servicos/produto/produto.servico';
 
 @Component({
-  selector: 'produto',
+  selector: 'app-produto',
   templateUrl: './produto.component.html',
   styleUrls: ['./produto.component.css']
 })
 
-export class ProdutoComponent implements OnInit{
+export class ProdutoComponent implements OnInit {
   public produto: Produto;
   public produtos: Produto[];
   public ativar_spinner: boolean;
@@ -26,21 +26,9 @@ export class ProdutoComponent implements OnInit{
     var produtoSession = sessionStorage.getItem('produtoSession');
     if (produtoSession) {
       this.produto = JSON.parse(produtoSession);
-    }
-    else {
+    } else {
       this.produto = new Produto();
     }
-  }
-
-  public obterTodosProdutos(){
-    this.produtoServico.obterTodosProdutos()
-    .subscribe(
-      produtos => {
-        this.produtos = produtos;
-      },
-      er => {
-        console.log(er.error);
-      });
   }
 
   public inputChange(files: FileList) {
@@ -48,10 +36,10 @@ export class ProdutoComponent implements OnInit{
     this.produtoServico.enviarArquivo(this.arquivoSelecionado)
       .subscribe(
         retorno => {
-          console.log(retorno)
+          console.log(retorno);
         },
         e => {
-          console.log(e)
+          console.log(e);
         });
   }
 
@@ -61,13 +49,18 @@ export class ProdutoComponent implements OnInit{
         produtoJson => {
           this.produto = produtoJson;
           this.produtoCadastrado = true;
-          this.mensagem = "";
+          this.mensagem = '';
           this.ativar_spinner = false;
-          this.router.navigate(['/pesquisa']);
+          this.router.navigate(['/pesquisa-produto']);
         },
         err => {
           this.ativar_spinner = false;
           this.mensagem = err.error;
         });
+  }
+
+  adicionarProduto() {
+    sessionStorage.setItem('produtoSession', '');
+    this.router.navigate(['/produto']);
   }
 }
