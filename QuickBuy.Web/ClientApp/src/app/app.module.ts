@@ -37,7 +37,7 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: LojaPesquisaComponent, pathMatch: 'full' },
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
       { path: 'produto', component: ProdutoComponent },

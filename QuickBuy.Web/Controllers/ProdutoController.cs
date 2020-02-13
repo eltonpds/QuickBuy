@@ -41,8 +41,15 @@ namespace QuickBuy.Web.Controllers
                 if (produtoInformado != null)
                     return BadRequest("Produto já cadastrado no sistema");
 
-                _produtoRepositorio.Adicionar(produto);
-                return Ok();
+                if(produto.Id > 0)
+                {
+                    _produtoRepositorio.Atualizar(produto);
+                }
+                else
+                {
+                    _produtoRepositorio.Adicionar(produto);
+                }                
+                return Created("api/produto", produto);
             }
             catch(Exception ex)
             {

@@ -48,7 +48,8 @@ export class PesquisaComponent implements OnInit {
    }
 
    public editarProduto(produto: Produto) {
-    this.produtoServico.
+     sessionStorage.setItem('produtoSession', JSON.stringify(produto));
+     this.router.navigate(['/produto']);
    }
 
 }

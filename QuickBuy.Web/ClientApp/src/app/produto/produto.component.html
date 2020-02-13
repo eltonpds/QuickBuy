@@ -40,8 +40,13 @@
                #preco="ngModel"
                required />
       </div>
-      <button class="btn btn-primary mb-2" (click)="cadastrar()" [disabled]="ativar_spinner">Cadastrar</button>
-      <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+
+      <form class="form-inline">
+        <button class="btn btn-primary mb-2" style="margin-right: 5px;" (click)="cadastrar()" [disabled]="ativar_spinner">Cadastrar</button>
+        <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+        <button class="btn btn-secondary mb-2" [routerLink]="['/pesquisa-produto']">Cancelar</button>
+      </form>
+
     </div>
     <div class="col-md-4" *ngIf="mensagem">
       {{mensagem}}
