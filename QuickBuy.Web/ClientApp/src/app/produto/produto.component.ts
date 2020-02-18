@@ -58,9 +58,4 @@ export class ProdutoComponent implements OnInit {
           this.mensagem = err.error;
         });
   }
-
-  adicionarProduto() {
-    sessionStorage.setItem('produtoSession', '');
-    this.router.navigate(['/produto']);
-  }
 }

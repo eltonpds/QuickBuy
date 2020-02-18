@@ -14,6 +14,7 @@ export class PesquisaComponent implements OnInit {
   public produtos: Produto[];
 
   ngOnInit() {
+    sessionStorage.setItem('produtoSession', '');
   }
 
   constructor(private router: Router, private produtoServico: ProdutoServico) {
@@ -30,6 +31,7 @@ export class PesquisaComponent implements OnInit {
    }
 
    adicionarProduto() {
+    sessionStorage.setItem('produtoSession', '');
     this.router.navigate(['/produto']);
    }
 

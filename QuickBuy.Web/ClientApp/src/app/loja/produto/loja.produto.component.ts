@@ -16,15 +16,13 @@ export class LojaProdutoComponent implements OnInit {
     ngOnInit(): void {
         this.carrinhoCompras = new LojaCarrinhoCompras();
         this.produto = new Produto();
-        let produtoDetalhe = sessionStorage.getItem('produtoDetalhe');
+        const produtoDetalhe = sessionStorage.getItem('produtoDetalhe');
         if (produtoDetalhe) {
             this.produto = JSON.parse(produtoDetalhe);
         }
     }
 
-    constructor(private produtoServico: ProdutoServico, private router: Router) {
-
-    }
+    constructor(private produtoServico: ProdutoServico, private router: Router) {  }
 
     public comprar() {
         this.carrinhoCompras.adicionar(this.produto);

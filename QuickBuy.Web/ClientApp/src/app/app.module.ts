@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { TruncateModule } from 'ng2-truncate';
 
 import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './usuario/login/login.component';
@@ -36,6 +37,7 @@ import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    TruncateModule,
     RouterModule.forRoot([
       { path: '', component: LojaPesquisaComponent, pathMatch: 'full' },
       { path: 'entrar', component: LoginComponent },

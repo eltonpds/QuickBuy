@@ -25,7 +25,11 @@
                [ngClass]=""
                [(ngModel)]="produto.descricao"
                #descricao="ngModel"
-               required />
+               required
+               minlength="30" />
+      </div>
+      <div *ngIf="descricao.errors.minlength">
+        Campo deve ter no mínimo 50 caracteres
       </div>
 
       <div class="col">

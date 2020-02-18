@@ -1,14 +1,18 @@
-<div class="container">
+<div *ngIf="!produtos">Listando os produtos</div>
+
+<div class="container" *ngIf="produtos">
   <div class="row">
     <div class="col-md-4" *ngFor="let p of produtos">
-      <div class="card">
-        <img />
-        <div class="card-body">
-          <h5 class="card-title">{{p.nome}}</h5>
-          <div class="h5">{{p.descricao}}</div>
-          <h5 class="h5">{{p.preco}}</h5>
+      <a (click)="abrirProduto(p)" style="cursor:pointer">
+        <div class="card">
+          <img />
+          <div class="card-body">
+            <h5 class="card-title">Marca: {{p.nome}}</h5>
+            <div class="h5">Modelo: {{p.descricao | truncate: 40 }}</div>
+            <h5 class="h5">R$: {{p.preco}}</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </div>
